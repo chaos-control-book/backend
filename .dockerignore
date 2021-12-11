@@ -1,13 +1,7 @@
-.idea/
-.vscode/
-.git/
+.idea
+.vscode
+.git
 .gitignore
-.cache/
-.tmp/
-build/
-exports/
-node_modules/
 .dockerignore
-.strapi-updater.json
 LICENSE
 README.md
