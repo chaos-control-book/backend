@@ -3,6 +3,7 @@
 .cache
 .git
 .gitignore
+node_modules
 .dockerignore
 Dockerfile
 LICENSE

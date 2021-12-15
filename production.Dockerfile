@@ -3,6 +3,8 @@ FROM strapi/base:14-alpine AS deps
 
 WORKDIR /srv/app
 
+ENV NODE_ENV=production
+
 COPY package.json yarn.lock ./
 
 RUN rm -rf node_modules
@@ -14,16 +16,20 @@ FROM strapi/base:14-alpine AS builder
 
 WORKDIR /srv/app
 
+ENV NODE_ENV=production
+
 COPY . .
 
 COPY --from=deps /srv/app/node_modules ./node_modules
 
-RUN yarn build:prod
+RUN yarn build
 
 # Production image, copy all the files and run strapi
 FROM strapi/base:14-alpine AS runner
 
 WORKDIR /srv/app
+
+ENV NODE_ENV=production
 
 RUN npm install --global pm2
 
@@ -37,4 +43,4 @@ EXPOSE 1337
 
 ENV PORT 1337
 
-CMD pm2-runtime "yarn start:prod"
+CMD pm2-runtime "yarn start"

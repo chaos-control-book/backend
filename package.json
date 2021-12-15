@@ -5,10 +5,8 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "build:dev": "strapi build",
-    "build:prod": "NODE_ENV=production strapi build",
-    "start:dev": "strapi start",
-    "start:prod": "NODE_ENV=production strapi start",
+    "build": "strapi build",
+    "start": "strapi start",
     "strapi": "strapi"
   },
   "devDependencies": {},
